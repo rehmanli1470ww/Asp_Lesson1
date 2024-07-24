@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebApplication1.Entities.HotMeal>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>Count : @Model.Count() </h1>
+    @foreach (var item in Model)
+    {
+        <div>
+            <h1>Id : @item.Id</h1>
+            <h1>Type : @item.Type</h1>
+            <h1>Name : @item.Name</h1>
+            <h1>Price : @item.Price</h1>
+            <hr />
+        </div>
+    }
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿@* @model IEnumerable<WebApplication1.Entities.Employee>
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1> We have @Model.Count() workers</h1>
+        @foreach (var item in Model)
+    {
+        <div>
+            <h1>Id : @item.Id</h1>
+            <h1>Firstname : @item.Firstname</h1>
+            <h1>Lastname : @item.Lastname</h1>
+            <h1>CityId : @item.CityId</h1>
+            <hr/>
+        </div>
+    }
+
+
+    </body>
+</html> *@
+
+@model WebApplication1.Models.EmployeeViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1> We have @Model.Employees.Count workers</h1>
+    @foreach (var item in Model.Employees)
+    {
+        <div>
+            <h1>Id : @item.Id</h1>
+            <h1>Firstname : @item.Firstname</h1>
+            <h1>Lastname : @item.Lastname</h1>
+            <h1>CityId : @item.CityId</h1>
+            <hr />
+        </div>
+    }
+    <h1> We have @Model.Cityes.Count workers</h1>
+    @foreach (var item in Model.Cityes)
+    {
+        <div>
+            <h1> @item</h1>
+            <hr />
+        </div>
+    }
+
+
+</body>
+</html>

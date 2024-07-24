@@ -1,0 +1,46 @@
+﻿@model WebApplication1.Models.HomeViewModel
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>Count : @Model.Drinks.Count Drinks</h1>
+    @foreach (var item in Model.Drinks)
+    {
+        <div>
+            <h1>Id : @item.Id</h1>
+            <h1>Type : @item.Type</h1>
+            <h1>Name : @item.Name</h1>
+            <h1>Price : @item.Price</h1>
+            <hr />
+        </div>
+    }
+    <h1>Count : @Model.HotMeals.Count Drinks</h1>
+    @foreach (var item in Model.HotMeals)
+    {
+        <div>
+            <h1>Id : @item.Id</h1>
+            <h1>Type : @item.Type</h1>
+            <h1>Name : @item.Name</h1>
+            <h1>Price : @item.Price</h1>
+            <hr />
+        </div>
+    }
+    <h1>Count : @Model.FastFoods.Count Drinks</h1>
+    @foreach (var item in Model.FastFoods)
+    {
+        <div>
+            <h1>Id : @item.Id</h1>
+            <h1>Type : @item.Type</h1>
+            <h1>Name : @item.Name</h1>
+            <h1>Price : @item.Price</h1>
+            <hr />
+        </div>
+    }
+    
+   
+
+
+</body>
+</html>
