@@ -1,0 +1,14 @@
+﻿@model EmployeeListViewModel
+
+<section class="container bg-info">
+@foreach(var item in Model.Employees)
+{
+    <h1>Id : @item.Id</h1>
+    <h1>Firstname : @item.Firstname</h1>
+    <h1>Lastname : @item.Lastname</h1>
+    <h1>CityId : @item.CityId</h1>
+    <a asp-controller="Employee" asp-action="Delete" asp-route-id="@item.Id">Delete Employe</a>
+    <hr />
+}
+<a href="/employee/add">Add Employee</a>
+</section>

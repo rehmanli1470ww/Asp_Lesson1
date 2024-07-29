@@ -1,0 +1,27 @@
+﻿@model Student
+
+
+
+<form style="margin:auto" class="form-group" asp-action="Add" asp-controller="Student" method="post">
+    <section style="width:40%;height:70%">
+
+        <div class="input-group input-group-lg">
+            <span style="width:120px" class="input-group-text" id="inputGroup-sizing-lg">FirstName </span>
+            <input asp-for="FirstName" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+
+        <div class="input-group input-group-lg">
+            <span style="width:120px" class="input-group-text" id="inputGroup-sizing-lg">LastName </span>
+            <input asp-for="LastName" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+
+        <div class="input-group input-group-lg">
+            <span style="width:120px" class="input-group-text" id="inputGroup-sizing-lg">Email </span>
+            <input asp-for="Email" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+        
+        <div style="text-align:center;margin:20px" class="d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" type="submit">Add Student</button>
+        </div>
+    </section>
+</form>

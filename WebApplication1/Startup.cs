@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Data;
+using WebApplication1.Repositories;
+using WebApplication1.Servicies;
 
 namespace WebApplication1
 {
@@ -24,6 +28,16 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddSingleton<ICalculate,SimpleCalculate>();
+           services.AddScoped<ICalculate,SimpleCalculate>();
+            //services.AddTransient<ICalculate, SimpleCalculate>();
+            var connection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=StudentDB;Integrated Security=True;";
+            services.AddDbContext<StudentDbContext>(opt =>
+            {
+                opt.UseSqlServer(connection);
+            });
+            services.AddScoped<IStudentRepository,EFStudentRepository>();
+            services.AddScoped<IStudentService,StudentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +64,7 @@ namespace WebApplication1
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Market}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

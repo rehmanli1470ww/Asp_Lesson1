@@ -7,15 +7,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Entities;
 using WebApplication1.Models;
+using WebApplication1.Servicies;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-
+        private readonly ICalculate _calculate;
+        private readonly ICalculate _calculate1;
+        public HomeController(ICalculate calculate, ICalculate calculate1)
+        {
+            _calculate = calculate;
+            _calculate1 = calculate1;
+        }
         public string Index()
         {
-            return "Hello Worlds";
+            _calculate.Calculate(200);
+            _calculate1.Calculate(200);
+            return "Resault : ";
         }
         public IActionResult Index2()
         {
